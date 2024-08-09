@@ -1,6 +1,5 @@
 package com.ttmagic.note.ui
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -20,8 +19,7 @@ class NoteViewModel @Inject constructor(
     private val addUpdateNoteUseCase: AddUpdateNoteUseCase,
     private val deleteNoteUseCase: DeleteNoteUseCase,
 ) : ViewModel() {
-    private val handler = CoroutineExceptionHandler { _, throwable ->
-        Log.e("NoteViewModel", throwable.message ?: "")
+    private val handler = CoroutineExceptionHandler { _, _ ->
     }
 
     private val _notes by lazy { MutableLiveData<List<Note>>() }
